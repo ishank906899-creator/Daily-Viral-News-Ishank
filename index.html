@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+</head>
+<body>
+  <h1>
+    <!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Daily Viral News Ishank | ताज़ा खबरें</title>
+
+<meta name="description"
+content="Daily Viral News Ishank - भारत, दुनिया और वायरल खबरों की ताज़ा जानकारी।">
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+    color:#171717;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:94%;
+    max-width:1250px;
+    margin:auto;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar{
+    background:#111827;
+    color:#fff;
+    padding:8px 0;
+    font-size:13px;
+}
+
+.top-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.live{
+    color:#ff3b30;
+    font-weight:bold;
+}
+
+.live span{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    background:#ff3b30;
+    border-radius:50%;
+    margin-right:5px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.header-main{
+    min-height:85px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:10px;
+    background:#d71920;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:bold;
+}
+
+.logo-text h1{
+    font-size:25px;
+    font-weight:800;
+    color:#111827;
+}
+
+.logo-text h1 span{
+    color:#d71920;
+}
+
+.logo-text p{
+    color:#777;
+    font-size:12px;
+    margin-top:3px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    display:flex;
+    width:300px;
+    height:42px;
+}
+
+.search-box input{
+    flex:1;
+    border:1px solid #ddd;
+    border-right:0;
+    border-radius:7px 0 0 7px;
+    padding:0 13px;
+    outline:none;
+    font-size:14px;
+}
+
+.search-box button{
+    width:48px;
+    border:0;
+    background:#d71920;
+    color:#fff;
+    border-radius:0 7px 7px 0;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navbar{
+    background:#d71920;
+    color:white;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+}
+
+.nav a{
+    padding:15px 25px;
+    font-size:15px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.nav a:hover,
+.nav a.active{
+    background:#b51218;
+}
+
+/* =========================
+   BREAKING NEWS
+========================= */
+
+.breaking-wrap{
+    background:#fff;
+    border-bottom:1px solid #ddd;
+}
+
+.breaking{
+    display:flex;
+    min-height:45px;
+    align-items:center;
+}
+
+.breaking-title{
+    background:#111827;
+    color:#fff;
+    padding:9px 15px;
+    font-size:13px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.breaking-news{
+    padding:0 15px;
+    overflow:hidden;
+    white-space:nowrap;
+    font-size:14px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:18px;
+}
+
+.hero-main{
+    min-height:390px;
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    background:
+    linear-gradient(135deg,#991b1b,#ef4444 50%,#111827);
+    color:white;
+    display:flex;
+    align-items:flex-end;
+}
+
+.hero-main::before{
+    content:"📰";
+    position:absolute;
+    right:50px;
+    top:50px;
+    font-size:120px;
+    opacity:.15;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:28px;
+    width:100%;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));
+    padding-top:120px;
+}
+
+.tag{
+    display:inline-block;
+    background:#d71920;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.hero-content h2{
+    font-size:32px;
+    line-height:1.25;
+    margin-bottom:10px;
+}
+
+.hero-content p{
+    color:#eee;
+    font-size:14px;
+}
+
+/* =========================
+   SIDE NEWS
+========================= */
+
+.side-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.side-card{
+    background:#fff;
+    border-radius:10px;
+    padding:15px;
+    border:1px solid #e5e7eb;
+    transition:.2s;
+}
+
+.side-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.side-card .number{
+    color:#d71920;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.side-card h3{
+    font-size:17px;
+    line-height:1.35;
+    margin-top:6px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    margin-top:28px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:3px solid #d71920;
+    margin-bottom:15px;
+}
+
+.section-head h2{
+    font-size:22px;
+    background:#d71920;
+    color:#fff;
+    padding:9px 15px;
+    border-radius:5px 5px 0 0;
+}
+
+.section-head a{
+    color:#d71920;
+    font-weight:bold;
+    font-size:13px;
+}
+
+/* =========================
+   NEWS GRID
+========================= */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.news-card{
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid #e5e7eb;
+    transition:.25s;
+}
+
+.news-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
+}
+
+.news-image{
+    height:180px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
+    color:#fff;
+    background:linear-gradient(135deg,#1f2937,#d71920);
+}
+
+.news-card:nth-child(2) .news-image{
+    background:linear-gradient(135deg,#075985,#38bdf8);
+}
+
+.news-card:nth-child(3) .news-image{
+    background:linear-gradient(135deg,#166534,#22c55e);
+}
+
+.news-card:nth-child(4) .news-image{
+    background:linear-gradient(135deg,#581c87,#c026d3);
+}
+
+.news-card:nth-child(5) .news-image{
+    background:linear-gradient(135deg,#7c2d12,#f97316);
+}
+
+.news-card:nth-child(6) .news-image{
+    background:linear-gradient(135deg,#172554,#2563eb);
+}
+
+.news-content{
+    padding:15px;
+}
+
+.news-content .category{
+    color:#d71920;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.news-content h3{
+    font-size:18px;
+    line-height:1.4;
+    margin:7px 0;
+}
+
+.news-content p{
+    color:#666;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.news-date{
+    color:#999;
+    font-size:11px;
+    margin-top:10px;
+}
+
+/* =========================
+   TWO COLUMN
+========================= */
+
+.two-column{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+/* =========================
+   TRENDING
+========================= */
+
+.trending{
+    background:#fff;
+    border-radius:10px;
+    padding:17px;
+    border:1px solid #e5e7eb;
+}
+
+.trend-item{
+    display:flex;
+    gap:12px;
+    padding:13px 0;
+    border-bottom:1px solid #eee;
+}
+
+.trend-item:last-child{
+    border-bottom:0;
+}
+
+.trend-number{
+    color:#d71920;
+    font-size:20px;
+    font-weight:bold;
+    min-width:30px;
+}
+
+.trend-item h3{
+    font-size:15px;
+    line-height:1.4;
+}
+
+/* =========================
+   AD BOX
+========================= */
+
+.ad-box{
+    background:#fff;
+    border:1px dashed #bbb;
+    min-height:180px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#999;
+    font-size:13px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    margin-top:45px;
+    background:#111827;
+    color:#fff;
+}
+
+.footer-main{
+    padding:35px 0;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.footer-logo span{
+    color:#ef4444;
+}
+
+.footer-main p{
+    color:#cbd5e1;
+    margin-top:10px;
+    line-height:1.6;
+    font-size:13px;
+}
+
+.footer-main h3{
+    margin-bottom:12px;
+}
+
+.footer-main a{
+    display:block;
+    color:#cbd5e1;
+    font-size:13px;
+    margin:8px 0;
+}
+
+.footer-bottom{
+    border-top:1px solid #374151;
+    text-align:center;
+    padding:15px;
+    color:#9ca3af;
+    font-size:12px;
+}
+
+/* =========================
+   MOBILE BOTTOM NAV
+========================= */
+
+.mobile-nav{
+    display:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .container{
+        width:94%;
+    }
+
+    .top-content{
+        justify-content:center;
+    }
+
+    .top-date{
+        display:none;
+    }
+
+    .header-main{
+        flex-direction:column;
+        padding:15px 0;
+        gap:12px;
+    }
+
+    .logo{
+        justify-content:center;
+    }
+
+    .logo-text h1{
+        font-size:21px;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .navbar{
+        overflow-x:auto;
+    }
+
+    .nav{
+        width:max-content;
+    }
+
+    .nav a{
+        padding:13px 18px;
+        font-size:14px;
+    }
+
+    .breaking-title{
+        padding:9px 10px;
+    }
+
+    .breaking-news{
+        font-size:12px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-main{
+        min-height:330px;
+    }
+
+    .hero-content h2{
+        font-size:25px;
+    }
+
+    .news-grid{
+        grid-template-columns:1fr;
+    }
+
+    .two-column{
+        grid-template-columns:1fr;
+    }
+
+    .footer-main{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .section-head h2{
+        font-size:18px;
+    }
+
+    .mobile-nav{
+        display:flex;
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        height:58px;
+        background:#fff;
+        border-top:1px solid #ddd;
+        z-index:9999;
+        justify-content:space-around;
+        box-shadow:0 -3px 15px rgba(0,0,0,.10);
+    }
+
+    .mobile-nav a{
+        flex:1;
+        text-align:center;
+        padding-top:8px;
+        font-size:11px;
+        color:#555;
+    }
+
+    .mobile-nav a:first-child{
+        color:#d71920;
+        font-weight:bold;
+    }
+
+    body{
+        padding-bottom:60px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+    <div class="container top-content">
+
+        <div class="live">
+            <span></span> LIVE NEWS
+        </div>
+
+        <div class="top-date">
+            Daily Viral News Ishank
+        </div>
+
+    </div>
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container header-main">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            DV
+        </div>
+
+        <div class="logo-text">
+
+            <h1>
+                Daily Viral <span>News Ishank</span>
+            </h1>
+
+            <p>
+                खबर वही, जो सबसे पहले आप तक पहुंचे
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <input
+        type="text"
+        id="searchInput"
+        placeholder="खबर खोजें..."
+        onkeyup="searchNews()">
+
+        <button onclick="searchNews()">
+            🔍
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- NAVIGATION -->
+
+<div class="navbar">
+
+<div class="container nav">
+
+    <a href="#" class="active">
+        🏠 होम
+    </a>
+
+    <a href="#bharat">
+        🇮🇳 भारत
+    </a>
+
+    <a href="#duniya">
+        🌍 दुनिया
+    </a>
+
+    <a href="#viral">
+        🔥 वायरल
+    </a>
+
+</div>
+
+</div>
+
+
+<!-- BREAKING NEWS -->
+
+<div class="breaking-wrap">
+
+<div class="container breaking">
+
+    <div class="breaking-title">
+        🔴 BREAKING
+    </div>
+
+    <div class="breaking-news">
+        Daily Viral News Ishank पर पढ़ें देश और दुनिया की बड़ी खबरें...
+    </div>
+
+</div>
+
+</div>
+
+
+<main class="container">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <article class="hero-main">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                बड़ी खबर
+            </div>
+
+            <h2>
+                देश और दुनिया की हर बड़ी खबर अब एक ही जगह
+            </h2>
+
+            <p>
+                Daily Viral News Ishank के साथ जुड़े रहें और पाएं
+                ताज़ा खबरों की जानकारी।
+            </p>
+
+        </div>
+
+    </article>
+
+
+    <div class="side-list">
+
+        <article class="side-card">
+
+            <div class="number">
+                🇮🇳 भारत
+            </div>
+
+            <h3>
+                भारत से जुड़ी आज की महत्वपूर्ण खबरें यहां पढ़ें
+            </h3>
+
+        </article>
+
+
+        <article class="side-card">
+
+            <div class="number">
+                🌍 दुनिया
+            </div>
+
+            <h3>
+                दुनिया में क्या हो रहा है? जानिए बड़ी खबरें
+            </h3>
+
+        </article>
+
+
+        <article class="side-card">
+
+            <div class="number">
+                🔥 वायरल
+            </div>
+
+            <h3>
+                इंटरनेट पर तेजी से वायरल हो रही खबरों पर नजर
+            </h3>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- INDIA -->
+
+<section class="section" id="bharat">
+
+<div class="section-head">
+
+    <h2>
+        🇮🇳 भारत की खबरें
+    </h2>
+
+    <a href="#">
+        सभी देखें →
+    </a>
+
+</div>
+
+
+<div class="news-grid">
+
+    <article class="news-card">
+
+        <div class="news-image">
+            🇮🇳
+        </div>
+
+        <div class="news-content">
+
+            <div class="category">
+                भारत
+            </div>
+
+            <h3>
+                भारत से सामने आई आज की बड़ी खबर
+            </h3>
+
+            <p>
+                देश से जुड़ी महत्वपूर्ण खबरों और अपडेट की पूरी जानकारी।
+            </p>
+
+            <div class="news-date">
+                आज • Daily Viral News Ishank
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-image">
+            🏛️
+        </div>
+
+        <div class="news-content">
+
+            <div class="category">
+                भारत
+            </div>
+
+            <h3>
+                देश में होने वाले बड़े बदलाव की जानकारी
+            </h3>
+
+            <p>
+                महत्वपूर्ण अपडेट यहां पढ़ें।
+            </p>
+
+            <div class="news-date">
+                आज • Daily Viral News Ishank
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-image">
+            📰
+        </div>
+
+        <div class="news-content">
+
+            <div class="category">
+                भारत
+            </div>
+
+            <h3>
+                देशभर से आईं महत्वपूर्ण खबरें
+            </h3>
+
+            <p>
+                ताज़ा खबरों की जानकारी एक जगह।
+            </p>
+
+            <div class="news-date">
+                आज • Daily Viral News Ishank
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+</section>
+
+
+<!-- WORLD -->
+
+<section class="section" id="duniya">
+
+<div class="section-head">
+
+    <h2>
+        🌍 दुनिया की खबरें
+    </h2>
+
+    <a href="#">
+        सभी देखें →
+    </a>
+
+</div>
+
+
+<div class="news-grid">
+
+    <article class="news-card">
+
+        <div class="news-image">
+            🌍
+        </div>
+
+        <div class="news-content">
+
+            <div class="category">
+                दुनिया
+            </div>
+
+            <h3>
+                दुनिया से सामने आई बड़ी खबर
+            </h3>
+
+            <p>
+                अंतरराष्ट्रीय घटनाओं की ताज़ा जानकारी।
+            </p>
+
+            <div class="news-date">
+                आज • Daily Viral News Ishank
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-image">
+            ✈️
+        </div>
+
+        <div class="news-content">
+
+            <div class="category">
+                दुनिया
+            </div>
+
+            <h3>
+                अंतरराष्ट्रीय स्तर पर बड़ा अपडेट
+            </h3>
+
+            <p>
+                दुनिया की महत्वपूर्ण खबरों की जानकारी।
+            </p>
+
+            <div class="news-date">
+                आज • Daily Viral News Ishank
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+        <div class="news-image">
+            🌐
+        </div>
+
+        <div class="news-content">
+
+            <div class="category">
+                दुनिया
+            </div>
+
+            <h3>
+                दुनियाभर की बड़ी खबरें एक जगह
+            </h3>
+
+            <p>
+                महत्वपूर्ण अंतरराष्ट्रीय समाचार।
+            </p>
+
+            <div class="news-date">
+                आज • Daily Viral News Ishank
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+</section>
+
+
+<!-- VIRAL -->
+
+<section class="section" id="viral">
+
+<div class="section-head">
+
+    <h2>
+        🔥 वायरल खबरें
+    </h2>
+
+    <a href="#">
+        सभी देखें →
+    </a>
+
+</div>
+
+
+<div class="two-column">
+
+    <div class="news-grid">
+
+        <article class="news-card">
+
+            <div class="news-image">
+                🔥
+            </div>
+
+            <div class="news-content">
+
+                <div class="category">
+                    वायरल
+                </div>
+
+                <h3>
+                    इंटरनेट पर तेजी से वायरल हुई यह खबर
+                </h3>
+
+                <p>
+                    सोशल मीडिया पर चर्चा में आई खबर की पूरी जानकारी।
+                </p>
+
+                <div class="news-date">
+                    आज • Daily Viral News Ishank
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="news-card">
+
+            <div class="news-image">
+                📱
+            </div>
+
+            <div class="news-content">
+
+                <div class="category">
+                    वायरल
+                </div>
+
+                <h3>
+                    सोशल मीडिया पर छाई बड़ी खबर
+                </h3>
+
+                <p>
+                    जानिए इस खबर की पूरी कहानी।
+                </p>
+
+                <div class="news-date">
+                    आज • Daily Viral News Ishank
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+    <!-- TRENDING -->
+
+    <div class="trending">
+
+        <h2>
+            🔥 Trending
+        </h2>
+
+        <div class="trend-item">
+
+            <div class="trend-number">
+                01
+            </div>
+
+            <h3>
+                आज की सबसे ज्यादा चर्चा में रहने वाली खबर
+            </h3>
+
+        </div>
+
+
+        <div class="trend-item">
+
+            <div class="trend-number">
+                02
+            </div>
+
+            <h3>
+                सोशल मीडिया पर वायरल हो रही खबर
+            </h3>
+
+        </div>
+
+
+        <div class="trend-item">
+
+            <div class="trend-number">
+                03
+            </div>
+
+            <h3>
+                देश-दुनिया की बड़ी अपडेट
+            </h3>
+
+        </div>
+
+
+        <div class="trend-item">
+
+            <div class="trend-number">
+                04
+            </div>
+
+            <h3>
+                लोगों के बीच चर्चा में आई खबर
+            </h3>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ADVERTISEMENT -->
+
+<section class="section">
+
+    <div class="ad-box">
+        Advertisement
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-main">
+
+    <div>
+
+        <div class="footer-logo">
+            Daily Viral <span>News Ishank</span>
+        </div>
+
+        <p>
+            भारत, दुनिया और वायरल खबरों की ताज़ा जानकारी
+            एक ही जगह।
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            महत्वपूर्ण लिंक
+        </h3>
+
+        <a href="#">
+            होम
+        </a>
+
+        <a href="#bharat">
+            भारत
+        </a>
+
+        <a href="#duniya">
+            दुनिया
+        </a>
+
+        <a href="#viral">
+            वायरल
+        </a>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            संपर्क
+        </h3>
+
+        <a href="#">
+            About Us
+        </a>
+
+        <a href="#">
+            Contact Us
+        </a>
+
+        <a href="#">
+            Privacy Policy
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+    © 2026 Daily Viral News Ishank • All Rights Reserved
+
+</div>
+
+</footer>
+
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-nav">
+
+    <a href="#">
+        🏠<br>होम
+    </a>
+
+    <a href="#bharat">
+        🇮🇳<br>भारत
+    </a>
+
+    <a href="#duniya">
+        🌍<br>दुनिया
+    </a>
+
+    <a href="#viral">
+        🔥<br>वायरल
+    </a>
+
+</div>
+
+
+<script>
+
+/* =========================
+   SEARCH FUNCTION
+========================= */
+
+function searchNews(){
+
+    let input =
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+    let cards =
+    document.querySelectorAll(".news-card");
+
+    cards.forEach(function(card){
+
+        let text =
+        card.innerText.toLowerCase();
+
+        if(input === "" || text.includes(input)){
+
+            card.style.display = "";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
