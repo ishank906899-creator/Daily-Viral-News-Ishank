@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Viral News Ishank - Admin</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f1f5f9;
+  color:#111827;
+}
+header{
+  background:#111827;
+  color:white;
+  padding:18px;
+  text-align:center;
+}
+.container{
+  max-width:700px;
+  margin:25px auto;
+  padding:15px;
+}
+.card{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 5px 20px #0001;
+  margin-bottom:20px;
+}
+h2{margin-top:0}
+input,textarea,select{
+  width:100%;
+  padding:13px;
+  margin:8px 0 15px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  font-size:16px;
+}
+textarea{min-height:180px}
+button{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#2563eb;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+.logout{background:#dc2626}
+.news{
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:12px;
+  margin-top:12px;
+}
+.news img{
+  width:100%;
+  max-height:220px;
+  object-fit:cover;
+  border-radius:10px;
+}
+.small{
+  color:#6b7280;
+  font-size:14px;
+}
+#adminPanel{display:none}
+#message{
+  margin:10px 0;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📰 Daily Viral News Ishank</h1>
+  <div>Admin News Panel</div>
+</header>
+
+<div class="container">
+
+<!-- LOGIN -->
+<div id="loginBox" class="card">
+  <h2>🔐 Admin Login</h2>
+
+  <input id="email" type="email" placeholder="Admin Email">
+
+  <input id="password" type="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <div id="loginMessage"></div>
+</div>
+
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+
+<div class="card">
+  <h2>📰 नई खबर प्रकाशित करें</h2>
+
+  <input id="title" type="text" placeholder="खबर का Title">
+
+  <select id="category">
+    <option value="भारत">🇮🇳 भारत</option>
+    <option value="दुनिया">🌎 दुनिया</option>
+  </select>
+
+  <textarea id="content" placeholder="पूरी खबर यहाँ लिखें..."></textarea>
+
+  <label><b>🖼️ खबर की Image</b></label>
+  <input id="image" type="file" accept="image/*">
+
+  <label>
+    <input id="published" type="checkbox" checked style="width:auto">
+    तुरंत Publish करें
+  </label>
+
+  <button onclick="publishNews()">🚀 Publish News</button>
+
+  <div id="message"></div>
+</div>
+
+
+<div class="card">
+  <h2>📋 Published News</h2>
+  <div id="newsList">Loading...</div>
+</div>
+
+
+<div class="card">
+  <button class="logout" onclick="logout()">🚪 Logout</button>
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+const SUPABASE_URL =
+"https://ebpmskrureyllasggrzn.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_FN1q-DrwOdqj1r0o14seIA_lDxKRkes;
+
+const supabaseClient =
+supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
+// LOGIN
+async function login(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const msg =
+    document.getElementById("loginMessage");
+
+  if(!email || !password){
+    msg.innerHTML="❌ Email और Password डालें";
+    return;
+  }
+
+  msg.innerHTML="⏳ Login हो रहा है...";
+
+  const {data,error} =
+    await supabaseClient.auth.signInWithPassword({
+      email:email,
+      password:password
+    });
+
+  if(error){
+    msg.innerHTML="❌ "+error.message;
+    return;
+  }
+
+  document.getElementById("loginBox").style.display="none";
+  document.getElementById("adminPanel").style.display="block";
+
+  loadNews();
+}
+
+
+// PUBLISH NEWS
+async function publishNews(){
+
+  const title =
+    document.getElementById("title").value.trim();
+
+  const category =
+    document.getElementById("category").value;
+
+  const content =
+    document.getElementById("content").value.trim();
+
+  const published =
+    document.getElementById("published").checked;
+
+  const imageFile =
+    document.getElementById("image").files[0];
+
+  const message =
+    document.getElementById("message");
+
+  if(!title || !content){
+    message.innerHTML="❌ Title और News लिखें";
+    return;
+  }
+
+  message.innerHTML="⏳ News publish हो रही है...";
+
+  let image_url = null;
+
+
+  // IMAGE UPLOAD
+  if(imageFile){
+
+    const fileName =
+      Date.now()+"-"+imageFile.name.replace(/\s/g,"-");
+
+    const {error:uploadError} =
+      await supabaseClient.storage
+      .from("News image")
+      .upload(fileName,imageFile);
+
+    if(uploadError){
+      message.innerHTML=
+        "❌ Image upload error: "+uploadError.message;
+      return;
+    }
+
+    const {data:urlData} =
+      supabaseClient.storage
+      .from("News image")
+      .getPublicUrl(fileName);
+
+    image_url = urlData.publicUrl;
+  }
+
+
+  // SAVE NEWS
+  const {error} =
+    await supabaseClient
+    .from("news")
+    .insert({
+      title:title,
+      content:content,
+      image_url:image_url,
+      category:category,
+      published:published
+    });
+
+  if(error){
+    message.innerHTML=
+      "❌ News save error: "+error.message;
+    return;
+  }
+
+  message.innerHTML="✅ News सफलतापूर्वक Publish हो गई!";
+
+  document.getElementById("title").value="";
+  document.getElementById("content").value="";
+  document.getElementById("image").value="";
+
+  loadNews();
+}
+
+
+// LOAD NEWS
+async function loadNews(){
+
+  const list =
+    document.getElementById("newsList");
+
+  const {data,error} =
+    await supabaseClient
+    .from("news")
+    .select("*")
+    .order("created_at",{ascending:false});
+
+  if(error){
+    list.innerHTML="❌ "+error.message;
+    return;
+  }
+
+  if(!data || data.length===0){
+    list.innerHTML="अभी कोई News नहीं है।";
+    return;
+  }
+
+  list.innerHTML="";
+
+  data.forEach(news=>{
+
+    const div=document.createElement("div");
+    div.className="news";
+
+    div.innerHTML=`
+      ${news.image_url ?
+        `<img src="${news.image_url}">` : ""}
+
+      <h3>${escapeHtml(news.title)}</h3>
+
+      <div class="small">
+        ${escapeHtml(news.category)}
+        • ${news.published ? "Published" : "Draft"}
+      </div>
+
+      <p>${escapeHtml(news.content.substring(0,180))}...</p>
+
+      <button
+        style="background:#dc2626"
+        onclick="deleteNews(${news.id})">
+        🗑️ Delete
+      </button>
+    `;
+
+    list.appendChild(div);
+  });
+}
+
+
+// DELETE NEWS
+async function deleteNews(id){
+
+  if(!confirm("क्या आप यह News Delete करना चाहते हैं?")){
+    return;
+  }
+
+  const {error} =
+    await supabaseClient
+    .from("news")
+    .delete()
+    .eq("id",id);
+
+  if(error){
+    alert("❌ Delete error: "+error.message);
+    return;
+  }
+
+  alert("✅ News Delete हो गई");
+
+  loadNews();
+}
+
+
+// LOGOUT
+async function logout(){
+
+  await supabaseClient.auth.signOut();
+
+  document.getElementById("adminPanel").style.display="none";
+  document.getElementById("loginBox").style.display="block";
+}
+
+
+// SECURITY
+function escapeHtml(text){
+
+  return text
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+// CHECK LOGIN
+async function checkLogin(){
+
+  const {data} =
+    await supabaseClient.auth.getSession();
+
+  if(data.session){
+
+    document.getElementById("loginBox").style.display="none";
+    document.getElementById("adminPanel").style.display="block";
+
+    loadNews();
+  }
+}
+
+checkLogin();
+
+</script>
+
+</body>
+  </html>
