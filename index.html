@@ -1370,6 +1370,132 @@ function searchNews(){
 }
 
 </script>
+<script>
 
+const SUPABASE_URL =
+"https://ebpmskrureyllasggrzn.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_FN1q-DrwOdqj1r0o14seIA_lDxKRkes";
+
+const supabaseClient =
+supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
+async function loadWebsiteNews(){
+
+    const { data, error } = await supabaseClient
+        .from("news")
+        .select("*")
+        .eq("published", true)
+        .order("created_at", { ascending:false });
+
+    if(error){
+        console.log("News Error:", error);
+        return;
+    }
+
+    const bharat =
+        document.querySelector("#bharat .news-grid");
+
+    const duniya =
+        document.querySelector("#duniya .news-grid");
+
+
+    if(bharat) bharat.innerHTML = "";
+    if(duniya) duniya.innerHTML = "";
+
+
+    data.forEach(news => {
+
+        const card =
+        document.createElement("article");
+
+        card.className = "news-card";
+
+
+        let image = "";
+
+        if(news.image_url){
+
+            image =
+            `<img src="${news.image_url}"
+            style="width:100%;height:180px;object-fit:cover;">`;
+
+        }else{
+
+            image =
+            `<div class="news-image">📰</div>`;
+
+        }
+
+
+        const date =
+        new Date(news.created_at)
+        .toLocaleDateString("hi-IN");
+
+
+        card.innerHTML = `
+
+            ${image}
+
+            <div class="news-content">
+
+                <div class="category">
+                    ${escapeNews(news.category)}
+                </div>
+
+                <h3>
+                    ${escapeNews(news.title)}
+                </h3>
+
+                <p>
+                    ${escapeNews(
+                        news.content.substring(0,180)
+                    )}...
+                </p>
+
+                <div class="news-date">
+                    ${date} • Daily Viral News Ishank
+                </div>
+
+            </div>
+
+        `;
+
+
+        if(news.category === "भारत" && bharat){
+
+            bharat.appendChild(card);
+
+        }
+
+
+        if(news.category === "दुनिया" && duniya){
+
+            duniya.appendChild(card);
+
+        }
+
+    });
+
+}
+
+
+function escapeNews(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+loadWebsiteNews();
+
+</script>
 </body>
 </html>
