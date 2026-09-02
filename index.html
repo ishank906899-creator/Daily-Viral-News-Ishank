@@ -1412,7 +1412,11 @@ async function loadWebsiteNews(){
         document.createElement("article");
 
         card.className = "news-card";
+card.style.cursor = "pointer";
 
+card.onclick = function(){
+    window.location.href = "news.html?id=" + encodeURIComponent(news.id);
+};
 
         let image = "";
 
